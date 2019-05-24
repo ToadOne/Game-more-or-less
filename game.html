@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MORE OR LESS</title>
+</head>
+<body>
+
+
+	<h1>Bienvenue sur le jeu du Juste Prix</h1>
+
+	<p> Pour commencer , cliquer sur jouer ! </p>
+	<p> Vous disposez de 5 essais pour trouver le nombre magic ! </p>
+	<p> Vous pourrez recommencer en cas d'échec </p>
+
+	<h4> Bonne Chance !</h4>
+
+	<button class="btn" onclick="Play();">Jouer</button>
+
+	<script>
+	
+		function Play(){
+			
+				// nombre de tentaive effectuée 
+			let numberEssai = 0;
+				// nombre d'essai restant
+			let essai = 5;	
+				// On genère un nombre aléatoire
+			let number = Math.round(Math.random() * 100);
+				// on demande a l'user de rentrer un nombre
+			let choixUtilisateur = window.prompt("Entrez un nombre (1 - 100)");
+			
+
+
+
+			while(choixUtilisateur != number && essai > 0){
+
+				if(choixUtilisateur > number){
+					alert("C'est Moin");
+				}
+				else{
+					alert("C'est Plus");
+				}
+
+				choixUtilisateur = window.prompt("Entrez un nombre (1 - 100) - " + essai + ' Essai Restant !');
+
+				numberEssai++;
+
+				essai--;
+			}
+
+			if(essai != 0){
+				alert('Bravo !!! Vous avez réussi en : ' + numberEssai + 'Coups !!!'  );
+			}
+			else{
+				alert('GAME-OVER :(');
+			}
+
+
+
+		}
+
+	</script>
+
+	<style type="text/css">
+		
+		body{
+
+			background-color: lightblue;
+			text-align: center;
+		}
+
+		.btn{
+			width: 150px;
+			height: 30px;
+			border-radius: 30px;
+			font-size: 15px;
+			font-weight: bold;
+		}
+		.btn:hover{
+			background-color: green;
+			color: white;
+		}
+	</style>
+</body>
+</html>
